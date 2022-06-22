@@ -3,6 +3,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: box-shadow 0.5s;
+    height: 280px;
 }
 .container__card:hover {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
