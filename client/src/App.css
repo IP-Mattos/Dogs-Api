@@ -1,0 +1,13 @@
+:root{
+    --bg-color: #24262a;
+    --nav-bar-color: #343c47;
+    --text-color: #f7e8d3d3;
+    --tag-color: #247ca8b9;
+    --btn-color:#165270b9;
+    --text-color-btn: #313264d3;
+}
+
+@font-face {
+    font-family: Montserrat-VariableFont_wght;
+    src: url('font/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
