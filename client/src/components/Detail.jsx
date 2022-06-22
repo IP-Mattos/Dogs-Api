@@ -36,7 +36,8 @@ export default function Detail(props) {
                     ? myDog[0].temperament
                     : myDog[0].temperaments.map((temp) =>
                         temp.name.concat(" ")
-                      )}</p>
+                      )        
+                      }</p>
                 <p> Altura: {myDog[0].max_height} - {myDog[0].min_height} Cm</p>
                 <p> Peso: {myDog[0].max_weight} - {myDog[0].min_weight} Kg</p>
               </div>

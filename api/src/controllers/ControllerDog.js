@@ -23,7 +23,7 @@ const get_DogsApi = async () => {
                 max_height: max_height ? max_height : 100,
                 life_span: x.life_span,
                 image: x.image.url,
-                temperament: x.temperament
+                temperament: x.temperament ? x.temperament: "No tiene temperamento"
             }
             
         }
