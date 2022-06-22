@@ -110,7 +110,7 @@ button[disabled]:active, button[disabled]:hover{
   gap: 20px;
   padding: 40px;
   justify-content: center;
-  align-items: center;
+  
   height: 680px;
   text-decoration: none;
 }
