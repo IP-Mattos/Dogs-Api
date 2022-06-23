@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDetail, cleanDetail } from "../actions/index";
 import "../css/Detail.css";
 
-export default function Detail(props) {
-  console.log(props);
+export default function Detail() {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const {id} = useParams();
   const myDog = useSelector((state) => state.detail);
 
   useEffect(() => {
@@ -16,6 +15,7 @@ export default function Detail(props) {
 
   function handleClean() {
     dispatch(cleanDetail());
+    
   }
   return (
     <div className="container__detail">
@@ -42,7 +42,7 @@ export default function Detail(props) {
                 <p> Peso: {myDog[0].max_weight} - {myDog[0].min_weight} Kg</p>
               </div>
               <div className="container__button__detail">
-                <Link to="/home">
+                <Link to={"/home"} >
                   <button onClick={() => handleClean()}> Volver </button>
                 </Link>
               </div>

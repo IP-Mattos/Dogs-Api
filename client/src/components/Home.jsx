@@ -60,16 +60,16 @@ export default function Home() {
 
   function handleSort(e) {
     e.preventDefault();
+    setOrden(e.target.value);
     dispatch(orderByName(e.target.value));
     setCurrentPage(1);
-    setOrden(e.target.value);
   }
 
   function handleSortW(e) {
     e.preventDefault();
+    setOrden(e.target.value);
     dispatch(orderByWeight(e.target.value));
     setCurrentPage(1);
-    setOrden(e.target.value);
   }
   function handleChange(e) {
     console.log("llego");
@@ -105,12 +105,12 @@ export default function Home() {
       <div className="container__options">
         <div className="container__filter">
           <select onChange={(e) => handleSort(e)} defaultValue="Ordenar Alfabeticamente">
-            <option disabled >Ordenar Alfabeticamente</option>
+            <option disabled ></option>
             <option value="asc">Ascendente (A-Z)</option>
             <option value="desc">Descendente (Z-A)</option>
           </select>
           <select onChange={(e) => handleSortW(e)} defaultValue="Ordernar por peso">
-            <option disabled>Ordernar por peso</option>
+            <option disabled></option>
             <option value="mayor">Peso Maximo</option>
             <option value="menor">Peso Minimo</option>
           </select>
@@ -120,7 +120,7 @@ export default function Home() {
             <option value="api">Api</option>
           </select>
           <select onChange={(e) => handleFilterTemperament(e)} defaultValue="Temperamentos">
-            <option disabled> Temperamentos </option>
+            <option disabled></option>
             <option value="all"> Todos </option>
             {allTemp.map((t) => (
               <option key={t.id} value={t.name}>

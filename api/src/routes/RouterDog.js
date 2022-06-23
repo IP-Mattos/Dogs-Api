@@ -3,6 +3,7 @@ const router = Router();
 
 const { getAllInfo } = require('../controllers/ControllerDog.js');
 const { Dogs, Temperaments } = require("../db");
+const Dog = require("../models/Dog.js");
 
 router.get('/', async (req, res) => {
     let { name } = req.query
@@ -10,7 +11,6 @@ router.get('/', async (req, res) => {
     if (name) {
         name = name.toLowerCase()
         let name_breed = await allDogs.filter(e => e.name.toLowerCase().includes(name))
-        console.log(name_breed)
         name_breed.length > 0 ?
             res.status(200).send(name_breed) :
             res.status(404).send('Dog not Found!')
@@ -39,17 +39,17 @@ router.post('/', async (req, res, next) => {
         life_span,
         image
     } = req.body
-    name= name.toLowerCase()
+    name = name.toLowerCase()
 
     try {
         let findDog = await Dogs.findAll({
-            where:{
+            where: {
                 name: name
             }
         })
-        if(findDog.length > 0){
-            res.status(404).send("existe")
-        }else{
+        if (findDog.length > 0) {
+            res.status(403).send("El perro no se pudo crear")
+        } else {
             let new_Breed = await Dogs.create({
                 name,
                 min_height,
@@ -66,12 +66,31 @@ router.post('/', async (req, res, next) => {
                 }
             })
             new_Breed.addTemperaments(temperament_dog)
-            res.send("Exito!")  
+            res.status(200).send("Exito!")
         }
-    
+
     } catch (err) {
         console.log(err)
     }
 
 })
+
+router.put("/:id", (req, res, next) =>{
+    const {name } = req.query
+    const {id} = req.params
+    try{
+        return Dogs.update({
+            name
+        },{
+            where: {id: id}
+        })
+        .then(() =>{
+            res.status(200).send("se updateo")
+        })
+    }catch(err){
+        console.log(err)
+    }
+
+})
+
 module.exports = router;

@@ -1,6 +1,6 @@
 const initialState = {
     dogs: [],
-    allDogs: [],
+    filterDog: [],
     temperaments: [],
     detail: [],
 }
@@ -11,7 +11,7 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 dogs: action.payload,
-                allDogs: action.payload
+                filterDog: action.payload
             }
         case 'GET_TEMPERAMENTS':
             return {
@@ -19,10 +19,10 @@ function rootReducer(state = initialState, action) {
                 temperaments: action.payload
             }
         case 'FILTER_BY_TEMPERAMENT':
-            const allDogs = state.allDogs;
+            const filterDog = state.filterDog;
 
-            let filteredDogs = action.payload === "all" ? allDogs :
-                allDogs.filter((e) => {
+            let filteredDogs = action.payload === "all" ? filterDog :
+                filterDog.filter((e) => {
                     if (e.temperament) {
                         if (e.temperament.includes(action.payload)) {
                             console.log("filtrado", e)
@@ -38,7 +38,7 @@ function rootReducer(state = initialState, action) {
                     return false;
                 });
             if (filteredDogs.length <= 0) {
-                filteredDogs = allDogs;
+                filteredDogs = filterDog;
                 alert("No hay perro con ese temperamento");
             }
             return {
@@ -46,15 +46,15 @@ function rootReducer(state = initialState, action) {
                 dogs: filteredDogs,
             }
         case 'FILTER_CREATED':
-            const allDogss = state.allDogs;
-            console.log(allDogss.filter(e => e.id.length < 4))
+            const filterDogs = state.filterDog;
+            console.log(filterDogs.filter(e => e.id.length < 4))
             const createdFilter = action.payload === 'created' ?
-                allDogss.filter(e => e.id.length > 4) :
-                allDogss.filter(e => e.id.length > 0 && e.id.length < 4);
+                filterDogs.filter(e => e.id.length > 4) :
+                filterDogs.filter(e => e.id.length > 0 && e.id.length < 4);
             if (createdFilter.length > 0) {
                 return {
                     ...state,
-                    dogs: action.payload === 'all' ? state.allDogs : createdFilter
+                    dogs: action.payload === 'all' ? state.filterDog : createdFilter
                 }
             }
             else {

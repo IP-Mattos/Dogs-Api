@@ -9,17 +9,17 @@ function validate(input) {
   if (!input.name) {
     errors.name = "El nombre es requerido";
   }
-  if (!input.max_weight) {
-    errors.max_weight = "El peso maximo es requerido";
+  if (!input.max_weight || input.max_weight < input.min_weight) {
+    errors.max_weight = "El peso maximo es requerido o no puede ser menor que el minimo";
   }
-  if (!input.min_weight) {
-    errors.min_weight = "El peso minimo es requerido";
+  if (!input.min_weight || input.min_weight > input.max_weight) {
+    errors.min_weight = "El peso minimo es requerido o no puede ser mayor que el maximo";
   }
-  if (!input.min_height) {
-    errors.min_height = "La altura minima es requerida";
+  if (!input.min_height|| input.min_height > input.max_height) {
+    errors.min_height = "La altura minima es requerida o no puede ser mayor que la maxima";
   }
-  if (!input.max_height) {
-    errors.max_height = "La altura maxima es requerida";
+  if (!input.max_height || input.max_height < input.min_height) {
+    errors.max_height = "La altura maxima es requerida o no puede ser menor que la minima";
   }
 
   return errors;
@@ -38,6 +38,7 @@ export function DogCreate() {
 
   useEffect(() => {
     dispatch(getDogs());
+    dispatch(getTemperaments());
   }, [dispatch]);
 
   const [input, setInput] = useState({
@@ -140,9 +141,6 @@ export function DogCreate() {
     }
   }
 
-  useEffect(() => {
-    dispatch(getTemperaments());
-  }, [dispatch]);
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -158,6 +156,15 @@ export function DogCreate() {
               required
             />
             {errors.name && <p className="error">{errors.name}</p>}
+          </div>
+          <div className="container__box">
+            <label htmlFor="life_span">Años de Vida:</label>
+            <input
+              type="text"
+              value={input.life_span}
+              name="life_span"
+              onChange={handleChange}
+            />
           </div>
           <div className="container__box">
             <label htmlFor="max_height">Altura Maxima:</label>
@@ -203,15 +210,7 @@ export function DogCreate() {
             />
             {errors.min_weight && <p className="error">{errors.min_weight}</p>}
           </div>
-          <div className="container__box">
-            <label htmlFor="life_span">Años de Vida:</label>
-            <input
-              type="text"
-              value={input.life_span}
-              name="life_span"
-              onChange={handleChange}
-            />
-          </div>
+
           <div className="container__box">
             <label htmlFor="image">Imagen:</label>
             <input
