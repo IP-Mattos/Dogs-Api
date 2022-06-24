@@ -9,16 +9,16 @@ function validate(input) {
   if (!input.name) {
     errors.name = "El nombre es requerido";
   }
-  if (!input.max_weight || input.max_weight < input.min_weight) {
+  if (!input.max_weight || +input.max_weight < +input.min_weight) {
     errors.max_weight = "El peso maximo es requerido o no puede ser menor que el minimo";
   }
-  if (!input.min_weight || input.min_weight > input.max_weight) {
+  if (!input.min_weight || +input.min_weight > +input.max_weight) {
     errors.min_weight = "El peso minimo es requerido o no puede ser mayor que el maximo";
   }
-  if (!input.min_height|| input.min_height > input.max_height) {
+  if (!input.min_height|| +input.min_height > +input.max_height) {
     errors.min_height = "La altura minima es requerida o no puede ser mayor que la maxima";
   }
-  if (!input.max_height || input.max_height < input.min_height) {
+  if (!input.max_height || +input.max_height < +input.min_height) {
     errors.max_height = "La altura maxima es requerida o no puede ser menor que la minima";
   }
 
@@ -51,7 +51,7 @@ export function DogCreate() {
     image: "",
     temperament: [], //lo seteo en un array para poder guardar la cantidad de temperamentos que quiera.
   });
-
+console.log(input)
   function handleChange(e) {
     if (
       e.target.name === "min_height" ||
