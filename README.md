@@ -16,7 +16,7 @@ Estas son las tecnologías que usé para crear el proyecto completo:
 - Sequelize
  
 ## 💡 Qué se puede hacer?
-Podés ver información de todas las razas de perro. Además, podés filtrar por uno o varios temperamentos y ordenar por nombre y peso. También podés crear razas nuevas.
+Podés ver información de todas las razas de perro. Además, podés filtrar por un temperamento y ordenar por nombre y peso. También podés crear razas nuevas.
  
 ## 💬 Mi info de contacto:
 E-mail: ipmattoscontacos@gmail.com\
