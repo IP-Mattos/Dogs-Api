@@ -19,5 +19,5 @@ Estas son las tecnologías que usé para crear el proyecto completo:
 Podés ver información de todas las razas de perro. Además, podés filtrar por uno o varios temperamentos y ordenar por nombre y peso. También podés crear razas nuevas.
  
 ## 💬 Mi info de contacto:
-E-mail: molina.ipmattoscontacos@gmail.com\
+E-mail: ipmattoscontacos@gmail.com\
 LinkedIn: www.linkedin.com/in/iván-ignacio-peña-mattos-fullstack
