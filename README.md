@@ -1,7 +1,7 @@
 # PI-Dogs
  
 ## 🤔 Qué es?
-Es una aplicación web creada como proyecto individual para el bootcamp <a href="https://soyhenry.com/">Henry</a>. El objetivo era crear una aplicación fullstack que traiga datos de una API y los almacene en una base de datos.
+Es una aplicación web creada como proyecto individual para el bootcamp <a href="https://soyhenry.com/">Henry</a>. El objetivo era crear una aplicación fullstack que traiga datos de una API y el almacenamiento de nueva informacion en una base de datos.
  
 ## 💻 Se puede ver en vivo?
 Visita la demo clickeando el siguiente link:\
