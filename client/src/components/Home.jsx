@@ -94,7 +94,7 @@ export default function Home() {
             <li>
               <div className="a__color">
                 <Link to="/dog" className="button">
-                  Agregar
+                  <span>Agregar</span>
                 </Link>
               </div>
             </li>
