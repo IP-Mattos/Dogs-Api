@@ -19,7 +19,7 @@
 }
 
 .container__thumb img {
-    width: 120%;
+    width: 100%;
     display: block;
     opacity: 1;
     -webkit-transform: scale(1);
