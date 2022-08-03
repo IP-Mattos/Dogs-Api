@@ -106,8 +106,8 @@ button[disabled]:active, button[disabled]:hover{
 }
 .containerCard {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 400px );
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, 350px );
+  gap: 40px;
   padding: 40px;
   justify-content: center;
   height: 680px;
@@ -142,6 +142,28 @@ display: block;
 @media screen and (max-width:800px) {
   .containerCard{
     height:auto ;
+  }
+  .button{
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    cursor: pointer;
+    margin-left: 70%;
+  }
+  .button span{
+    display: none;
+  }
+  .button::after{
+    content: "+";
+    font-size: 30px;
+  }
+  .button::before{
+    visibility: hidden;
   }
   .container__options{
     display: flex;
